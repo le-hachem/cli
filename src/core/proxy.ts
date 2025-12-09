@@ -259,10 +259,15 @@ export async function launchProxy(
 export function killProxy() {
   if (proxyProc) {
     try {
-      proxyProc.kill("SIGINT");
+      if (os.platform() === "win32") {
+        // Windows doesn't support SIGINT/SIGTERM properly, use kill() without signal
+        proxyProc.kill();
+      } else {
+        proxyProc.kill("SIGINT");
+      }
     } catch {
       try {
-        proxyProc.kill("SIGTERM");
+        proxyProc.kill();
       } catch {
         //best-effort
       }
