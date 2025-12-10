@@ -9,4 +9,4 @@ export const reset = "\x1b[0m"; // ANSI reset
 export const brandRed = color("#e54c4c", "ansi"); // Bright red
 export const brandDarkRed = color("#9a0000", "ansi"); // Dark red
 export const brand = `${brandRed}Duels${brandDarkRed}+${reset}`;
-export const prompt = `${brandRed}d${brandDarkRed}+${reset}> `;
+export const prompt = `${brandRed}d${brandDarkRed}+${reset}$ `;
